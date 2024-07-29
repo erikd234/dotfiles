@@ -31,3 +31,67 @@ config checkout
 
 Do not rerun the install script after the initial run. Only rerun the config checkout command if necessary.
 Ensure you have backed up any important files before proceeding with these steps to avoid accidental data loss.
+
+
+# Package List
+
+This document provides installation suggestions for the setup which the configuration applies to. These packages are recommended to fully utilize the configuration files provided in the dotfiles repository.
+
+## Recommended Packages to Install for Configurations
+
+### i3wm and Essentials
+- **i3wm**: A tiling window manager.
+- **i3blocks**: Required for a better bottom bar experience.
+
+### X Related Packages
+- Install any necessary X server related packages for your system.
+
+### tmux
+- **tmux**: Terminal multiplexer.
+- **tmuxinator**: If you want to create tmux sessions that are always the same.
+
+### Neovim
+- **nvim**: Modern version of Vim.
+- **nvim extensions**: These need to be installed via `nvim/packer`.
+
+### Zsh and Related Tools
+- **zsh**: A powerful shell.
+
+### oh-my-zsh
+- **oh-my-zsh**: A framework for managing your zsh configuration.
+  ```sh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  ```
+
+### zsh Plugins
+ - zsh-autosuggestions: Suggests commands as you type based on your command history.
+
+```sh
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+- zsh-syntax-highlighting: Provides syntax highlighting for the shell zsh.
+
+```sh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+- zsh-autocomplete (optional): Enhances the auto-completion feature in zsh.
+
+### zsh Theming
+- powerlevel10k: A theme for zsh that emphasizes speed, flexibility, and out-of-the-box experience.
+```sh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+
+After installation, you might need to run:
+```sh
+p10k configure
+```
+
+to set the visual themes.
+
+### Recommended Terminal Emulator
+urxvt: A highly fact, unicode supported terminal emulator.
+
+You wont always need all of these packages, but this is what the dotfiles are currently customizeing
