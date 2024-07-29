@@ -218,3 +218,4 @@ alias discord='sudo dpkg -i discord-0.0.58.deb'
 #}
 #
 alias config='/usr/bin/git --git-dir=/home/erik/.cfg/ --work-tree=/home/erik'
+zstyle ':autocomplete:*' delay 3  # seconds (float)
