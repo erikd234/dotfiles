@@ -53,6 +53,7 @@ This document provides installation suggestions for the setup which the configur
 ### Neovim
 - **nvim**: Modern version of Vim.
 - **nvim extensions**: These need to be installed via `nvim/packer`.
+- to install packer, just open up NVIM and type `PackerInstall`, after that the NVIM plugins should all work
 
 ### Zsh and Related Tools
 - **zsh**: A powerful shell.

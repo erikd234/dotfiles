@@ -217,5 +217,5 @@ alias discord='sudo dpkg -i discord-0.0.58.deb'
 #   xset -dpms      # Disable DPMS
 #}
 #
-alias config='/usr/bin/git --git-dir=/home/erik/.cfg/ --work-tree=/home/erik'
+alias config='/usr/bin/git --git-dir=/home/erik/.cfg/ --work-tree=$HOME'
 zstyle ':autocomplete:*' delay 3  # seconds (float)
