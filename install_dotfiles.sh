@@ -2,7 +2,7 @@
 
 pushd $HOME
 echo ".cfg" >> .gitignore
-git clone git@github.com:erikd234/dotfiles.git --bare
+git clone https://github.com/erikd234/dotfiles.git --bare
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 #Places the files in the work-tree
