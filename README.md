@@ -49,6 +49,10 @@ This document provides installation suggestions for the setup which the configur
 ### tmux
 - **tmux**: Terminal multiplexer.
 - **tmuxinator**: If you want to create tmux sessions that are always the same.
+- Catppuccin tmux -> clone the themes github repo!
+```sh
+ git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/theme/
+```
 
 ### Neovim
 - **nvim**: Modern version of Vim.
