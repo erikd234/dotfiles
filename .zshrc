@@ -209,8 +209,7 @@ alias schat='sgpt --chat schat "$@"'
 alias schatn='rm /tmp/chat_cache/schat && sgpt --chat schat "$@"'
 alias srepl='sgpt --repl schat'
 alias vim='nvim "$@"'
-alias yt='python /home/erik/personal-dev/youtube-dl/youtube_dl "$@"'
-alias discord='sudo dpkg -i discord-0.0.58.deb'
+alias note='nvim note_$(date +"%Y%m%d_%H%M%S_%N").txt'
 
 #disable_saver() {
 #   xset s off      # Disable screen saver
@@ -219,3 +218,4 @@ alias discord='sudo dpkg -i discord-0.0.58.deb'
 #
 alias config='/usr/bin/git --git-dir=/home/erik/.cfg/ --work-tree=$HOME'
 zstyle ':autocomplete:*' delay 3.0  # seconds (float)
+
