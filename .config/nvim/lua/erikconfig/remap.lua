@@ -1,5 +1,6 @@
 
 -- USED HEAVILY
+vim.keymap.set("n","<C-s>", "<cmd>:w<cr>")
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- This makes my cursor go to the center when I page down

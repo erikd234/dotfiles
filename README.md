@@ -81,8 +81,10 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
-- zsh-autocomplete (optional): Enhances the auto-completion feature in zsh.
-
+- zsh-autocomplete: Enhances the auto-completion feature in zsh.
+```sh
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete
+```
 ### zsh Theming
 - powerlevel10k: A theme for zsh that emphasizes speed, flexibility, and out-of-the-box experience.
 ```sh

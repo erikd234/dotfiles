@@ -78,7 +78,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# My other plugsin are managed by znap below.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -113,12 +112,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 ## Start of CUSTOM ZSH config
-## This is me install znap manager
-[[ -r ~/Repos/znap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
-source ~/Repos/znap/znap.zsh  # Start Znap
-source /home/erik/Repos/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -194,9 +188,6 @@ i2c() {
     popd
 }
 
-export PATH=/home/erik/ghidra-Ghidra_11.0_build/bin:$PATH
-. "$HOME/.cargo/env"
-
 alias x='xclip -s c "$@"'
 alias s='sgpt "$@"'
 alias g='git "$@"'
@@ -219,3 +210,31 @@ alias note='nvim note_$(date +"%Y%m%d_%H%M%S_%N").txt'
 alias config='/usr/bin/git --git-dir=/home/erik/.cfg/ --work-tree=$HOME'
 zstyle ':autocomplete:*' delay 3.0  # seconds (float)
 
+
+# Function to change font size
+change_font_size() {
+    local current_size
+    current_size=$(echo $TERM_FONT_SIZE | grep -o '[0-9]*$')
+
+    if [[ $1 == "increase" ]]; then
+        ((current_size++))
+    elif [[ $1 == "decrease" ]]; then
+        ((current_size--))
+    fi
+
+    TERM_FONT_SIZE="xft:0xProtoNerdFontMono-Regular:size=$current_size"
+    printf '\33]50;%s\007' "$TERM_FONT_SIZE"
+}
+incresae_font_size() {
+    change_font_size increase
+}
+decrease_font_size() {
+    change_font_size decrease
+}
+
+# Set initial font size
+TERM_FONT_SIZE="xft:0xProtoNerdFontMono-Regular:size=12"
+printf '\33]50;%s\007' "$TERM_FONT_SIZE"
+# Bind keys
+bindkey -s '^[=' 'incresae_font_size\n'
+bindkey -s '^[-' 'decrease_font_size\n'
