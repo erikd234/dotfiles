@@ -10,17 +10,16 @@ lsp.ensure_installed({
 -- Fix Undefined global 'vim'
 lsp.nvim_workspace()
 
-
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
+  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
 })
 
-cmp_mappings['<Tab>'] = nil
+-- delete that cursed enter key mapping
+cmp_mappings['<CR>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
@@ -58,7 +57,34 @@ vim.diagnostic.config({
     virtual_text = true
 })
 
-require("luasnip").filetype_extend("templ",{"html"})
-require("luasnip").filetype_extend("tsx",{"html"})
+local ls = require("luasnip")
+ls.filetype_extend("templ",{"html"})
+ls.filetype_extend("tsx",{"html"})
 
 
+
+-- GOLANG SNIPPET HOTKEYS
+-- Define a function to expand the 'ir' snippet
+-- I found all the snippets that are handy in
+-- /home/erik/.local/share/nvim/site/pack/packer/start/friendly-snippets/snippets/go.json
+function _G.expand_ir_snippet()
+    local ls = require("luasnip")
+    local s = ls.snippet
+    local t = ls.text_node
+    local i = ls.insert_node
+    -- the ir snippet for err nil check in go
+    local snip = s("ir", {
+      t("if err != nil {"),
+      t({"", "\t"}), -- New line and tab
+      i(1, "return "),
+      i(2, "nil, "),
+      i(3, "err"),
+      t({"", "}"}), -- New line and closing brace
+    })
+    ls.snip_expand(snip)
+end
+
+vim.api.nvim_set_keymap('i', '<C-k>', '<cmd>lua expand_ir_snippet()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>k', '<cmd>lua expand_ir_snippet()<CR>', { noremap = true, silent = true })
+
+vim.keymap.set({"n"}, "<leader>r", "<cmd>GoRename<cr>")

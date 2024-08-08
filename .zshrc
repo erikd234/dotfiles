@@ -119,16 +119,15 @@ source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete/zsh-autocompl
 
 
 # This was my OLD BashRC config below here.
-export PATH=$PATH:/usr/local/texlive/2022/bin/x86_64-linux
 export PATH=$PATH:/home/erik/.local/bin
-export PATH=$PATH:/home/erik/go/bin
+#export PATH=$PATH:/home/erik/go/bin
 
 export PATH=$PATH:/usr/local/sqlite
-export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/init-nvm.sh
 export PATH="/home/erik/.ebcli-virtual-env/executables:$PATH"
 # SLOW
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export GTK_IM_MODULE=xim
 export QT_IM_MODULE=xim
 export XMODIFIERS=@im=xim
@@ -188,7 +187,7 @@ i2c() {
     popd
 }
 
-alias x='xclip -s c "$@"'
+alias x='xclip -selection clipboard -o "$@"'
 alias s='sgpt "$@"'
 alias g='git "$@"'
 alias gs='git status "$@"'
@@ -201,7 +200,7 @@ alias schatn='rm /tmp/chat_cache/schat && sgpt --chat schat "$@"'
 alias srepl='sgpt --repl schat'
 alias vim='nvim "$@"'
 alias note='nvim note_$(date +"%Y%m%d_%H%M%S_%N").txt'
-
+alias parrot='cd ~/work/parrot-beta-v2/server/'
 #disable_saver() {
 #   xset s off      # Disable screen saver
 #   xset -dpms      # Disable DPMS
