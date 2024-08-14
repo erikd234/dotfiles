@@ -88,3 +88,4 @@ vim.api.nvim_set_keymap('i', '<C-k>', '<cmd>lua expand_ir_snippet()<CR>', { nore
 vim.api.nvim_set_keymap('n', '<leader>k', '<cmd>lua expand_ir_snippet()<CR>', { noremap = true, silent = true })
 
 vim.keymap.set({"n"}, "<leader>r", "<cmd>GoRename<cr>")
+vim.keymap.set({"n"}, "<leader>f", "<cmd>GoFillStruct<cr>")

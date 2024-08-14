@@ -133,7 +133,7 @@ export QT_IM_MODULE=xim
 export XMODIFIERS=@im=xim
 export XDG_CONFIG_HOME="$HOME/.config"
 dev() {
-    cd ~/personal-dev/
+    cd ~/dev/
 }
 work() {
     cd ~/work/
@@ -230,6 +230,9 @@ incresae_font_size() {
 decrease_font_size() {
     change_font_size decrease
 }
+nvim_it() {
+    nvim .
+}
 
 # Set initial font size
 TERM_FONT_SIZE="xft:0xProtoNerdFontMono-Regular:size=12"
@@ -237,3 +240,4 @@ printf '\33]50;%s\007' "$TERM_FONT_SIZE"
 # Bind keys
 bindkey -s '^[=' 'incresae_font_size\n'
 bindkey -s '^[-' 'decrease_font_size\n'
+bindkey -s '^W' 'nvim_it\n'
