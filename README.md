@@ -6,6 +6,12 @@ This repository contains my personal dotfiles for configuring a new system. Foll
 
 ### Step 1: Prepare Your System
 
+After installing nvim and 
+
+yay -S nvim-packer-git
+
+You can go ahead and PackerSync to instlal the nvim deps
+
 1. **Backup and Remove Existing Dotfiles**:
    Make sure to delete any existing files that have the same name as the files in this repository. If you don't do this, you will encounter errors when the install script attempts to run `git checkout`.
 
