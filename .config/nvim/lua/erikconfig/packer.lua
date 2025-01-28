@@ -84,6 +84,8 @@ return require('packer').startup(function(use)
 	  }
   }
   use("ray-x/lsp_signature.nvim")
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua' -- go depends on it
   use("eandrju/cellular-automaton.nvim")
 end)
 

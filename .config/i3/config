@@ -195,11 +195,15 @@ bar {
 # The side buttons switch window focus, anywhere in the window
 bindsym --whole-window button9 focus left; exec --no-startup-id ~/.config/i3/center-mouse.sh
 bindsym --whole-window button8 focus right; exec --no-startup-id ~/.config/i3/center-mouse.sh
-bindsym --whole-window button2 exec i3-msg workspace next; exec --no-startup-id ~/.config/i3/center-mouse.sh
+bindsym --whole-window $mod+Tab exec i3-msg workspace next; exec --no-startup-id ~/.config/i3/center-mouse.sh
+bindsym --whole-window $mod+Shift+Tab exec i3-msg workspace prev; exec --no-startup-id ~/.config/i3/center-mouse.sh
 
 
 # start a terminal
-bindsym $mod+g exec chromium
+# work
+bindsym $mod+g exec chromium 'https://splendid-biscuit-1406a4.netlify.app' --profile-directory="Default"
+# Personal
+bindsym $mod+n exec chromium --profile-directory="Profile 1"
 # Start Parrot work env
 # take a screenshot of a screen region and copy it to a clipboard
 bindsym --release Print exec ~/.config/i3/screenshot.sh -s ~/screenshots/
@@ -208,7 +212,7 @@ bindsym $mod+p exec ~/.config/i3/parrot.sh
 # MOd M for microphone settings
 bindsym $mod+m exec pavucontrol
 bindsym $mod+Shift+m exec ~/.config/i3/monitor_setup.sh
-bindsym $mod+u exec exec urxvt -e nvim ~/.config/i3/config
+bindsym $mod+z exec exec urxvt -e nvim ~/.config/i3/config
 exec_always feh --bg-fill ~/.config/i3/pexels-felixmittermeier-956981.jpg
 focus_follows_mouse yes
 floating_maximum_size 600 x 800
@@ -217,7 +221,7 @@ for_window [class=".*"] floating disable
 # Gaps settings
 
 # default gaps
-gaps inner 5
-gaps outer 5
+gaps inner 0
+gaps outer 0
 exec copyq
 exec xfce4-power-manager

@@ -120,7 +120,9 @@ source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete/zsh-autocompl
 
 # This was my OLD BashRC config below here.
 export PATH=$PATH:/home/erik/.local/bin
-#export PATH=$PATH:/home/erik/go/bin
+export PATH=$PATH:/home/erik/appimages
+export PATH=$PATH:/home/erik/go/bin
+export PATH=$PATH:/home/erik/appimages
 
 export PATH=$PATH:/usr/local/sqlite
 source /usr/share/nvm/init-nvm.sh
@@ -170,13 +172,10 @@ zshrc() {
    nvim ~/.zshrc
 }
 
-open() {
-   xdg-open $1
-}
-
 downloads() {
 	cd ~/Downloads
 }
+
 fix_screen() {
 	xrandr --output $SCREEN --rotate normal
 }
@@ -200,7 +199,9 @@ alias schatn='rm /tmp/chat_cache/schat && sgpt --chat schat "$@"'
 alias srepl='sgpt --repl schat'
 alias vim='nvim "$@"'
 alias note='nvim note_$(date +"%Y%m%d_%H%M%S_%N").txt'
-alias parrot='cd ~/work/parrot-beta-v2/server/'
+alias parrot='cd ~/work/parrot/'
+alias sparrot='cd ~/work/parrot/server'
+alias cparrotc='cd ~/work/parrot/client'
 #disable_saver() {
 #   xset s off      # Disable screen saver
 #   xset -dpms      # Disable DPMS
@@ -241,3 +242,24 @@ printf '\33]50;%s\007' "$TERM_FONT_SIZE"
 bindkey -s '^[=' 'incresae_font_size\n'
 bindkey -s '^[-' 'decrease_font_size\n'
 bindkey -s '^W' 'nvim_it\n'
+export XDG_DATA_DIRS="$HOME/.local/share/applications:/usr/share/applications"
+
+backup() {
+    BACKUP_DATE=$(date +%Y-%m-%d_%H-%M-%S)
+    rsync -avh --progress --delete /home/erik/ erik@192.168.1.126:/home/erik/eos-bkp-$BACKUP_DATE/
+}
+
+# Function to lint first, then run your Go application with any arguments.
+go-run() {
+  # First run your linter
+  golangci-lint run
+
+  # Then pass all arguments along to `go run`
+  go run "$@"
+}
+
+# Function to lint first, then build your Go application with any arguments.
+go-build() {
+  golangci-lint run
+  go build "$@"
+}

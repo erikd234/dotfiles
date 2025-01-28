@@ -24,7 +24,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- deletes line below without moving cursor.
 vim.keymap.set("n", "J", "mzJ`z")
 -- deletes selected tect without putting it on the register!
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("n", "<leader>p", "<cmd>diffput<CR>")
 -- deleted without going to buffer !! should use more.
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 --  make my current file executable

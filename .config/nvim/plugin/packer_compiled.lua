@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/erik/.cache/nvim/packer_hererocks/2.1.1692716794/share/lua/5.1/?.lua;/home/erik/.cache/nvim/packer_hererocks/2.1.1692716794/share/lua/5.1/?/init.lua;/home/erik/.cache/nvim/packer_hererocks/2.1.1692716794/lib/luarocks/rocks-5.1/?.lua;/home/erik/.cache/nvim/packer_hererocks/2.1.1692716794/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/erik/.cache/nvim/packer_hererocks/2.1.1692716794/lib/lua/5.1/?.so"
+local package_path_str = "/home/erik/.cache/nvim/packer_hererocks/2.1.1723675123/share/lua/5.1/?.lua;/home/erik/.cache/nvim/packer_hererocks/2.1.1723675123/share/lua/5.1/?/init.lua;/home/erik/.cache/nvim/packer_hererocks/2.1.1723675123/lib/luarocks/rocks-5.1/?.lua;/home/erik/.cache/nvim/packer_hererocks/2.1.1723675123/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/erik/.cache/nvim/packer_hererocks/2.1.1723675123/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -80,7 +80,6 @@ _G.packer_plugins = {
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
   catppuccin = {
-    config = { "\27LJ\2\n:\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\27colorscheme catppuccin\bcmd\bvim\0" },
     loaded = true,
     path = "/home/erik/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
@@ -120,6 +119,12 @@ _G.packer_plugins = {
     path = "/home/erik/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gp.nvim"] = {
+    config = { "\27LJ\2\n…\1\0\0\4\0\6\0\n5\0\1\0005\1\0\0=\1\2\0006\1\3\0'\3\4\0B\1\2\0029\1\5\1\18\3\0\0B\1\2\1K\0\1\0\nsetup\agp\frequire\19openai_api_key\1\0\1\19openai_api_key\0\1\3\0\0\bcat\31/home/erik/.env/openai.txt\0" },
+    loaded = true,
+    path = "/home/erik/.local/share/nvim/site/pack/packer/start/gp.nvim",
+    url = "https://github.com/robitx/gp.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/erik/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -129,6 +134,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/erik/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/erik/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -229,10 +239,10 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: catppuccin
-time([[Config for catppuccin]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\27colorscheme catppuccin\bcmd\bvim\0", "config", "catppuccin")
-time([[Config for catppuccin]], false)
+-- Config for: gp.nvim
+time([[Config for gp.nvim]], true)
+try_loadstring("\27LJ\2\n…\1\0\0\4\0\6\0\n5\0\1\0005\1\0\0=\1\2\0006\1\3\0'\3\4\0B\1\2\0029\1\5\1\18\3\0\0B\1\2\1K\0\1\0\nsetup\agp\frequire\19openai_api_key\1\0\1\19openai_api_key\0\1\3\0\0\bcat\31/home/erik/.env/openai.txt\0", "config", "gp.nvim")
+time([[Config for gp.nvim]], false)
 -- Config for: nvim-surround
 time([[Config for nvim-surround]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
